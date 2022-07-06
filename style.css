@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600&family=Karla:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #7faee1;
+  --secondary-color: #3755a0;
+  --heading-font: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 2000px;
+  font-family: "Karla", Arial, sans-serif;
+}
+
+/* Header */
+header {
+  width: 100%;
+  /* background-color: var(--primary-color); */
+}
+
+/* navbar */
+nav {
+  position: fixed;
+  height: 60px;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 1rem 8.5%;
+  z-index: 1;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.nav-scrolled {
+  background-color: var(--primary-color);
+}
+
+nav .logo {
+  width: 100%;
+  color: var(--secondary-color);
+  font-size: 1.5em;
+}
+
+nav ul {
+  display: flex;
+  width: 60%;
+  list-style: none;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  height: 100%;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.login-button {
+  color: #fff;
+  background-color: var(--secondary-color);
+  padding: 8px 12px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 5px;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.login-button:hover {
+  background-color: transparent;
+  color: var(--secondary-color);
+  transition: 0.3s;
+}
+
+/* hamburger menu */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 1.5px;
+  transition: all 0.5s;
+}
+
+.menu-toggle span:first-child,
+.menu-toggle span:last-child {
+  transform-origin: 0 0;
+}
+
+/* hamburger menu animation */
+
+.active span:first-child {
+  transform: rotate(45deg) translate(0, -4px) scaleX(0.96);
+}
+.active span:last-child {
+  transform: rotate(-45deg) scaleX(0.96);
+}
+
+.active span:nth-child(2) {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+/* Content */
+main {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.home-page {
+  height: calc(100vh - 60px);
+}
+.ilustrations {
+  margin-bottom: 1rem;
+}
+.ilustrations img {
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.home-page .title {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  margin-top: 80px;
+}
+
+.title h1 {
+  font-family: var(--heading-font);
+  font-size: 3em;
+  color: var(--secondary-color);
+}
+.title h1 span {
+  font-weight: 200;
+  color: var(--primary-color);
+}
+.title p {
+  font-size: 1.2em;
+  color: var(--secondary-color);
+  max-width: 448px;
+  margin: 15px 0;
+}
+.title button {
+  width: fit-content;
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  padding: 15px 20px;
+  transition: 0.3s ease;
+}
+
+.title button:hover {
+  background-color: transparent;
+  color: var(--secondary-color);
+}
+
+/* -------------------------------- Responsive Breakpoint ----------------------------- */
+
+/* Ukuran MOBILE */
+
+@media screen and (max-width: 576px) {
+  .title p {
+    font-size: 1em;
+    font-weight: 300;
+  }
+}
+
+/* Ukuran TAB */
+@media screen and (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transform: translateX(100%);
+    background-color: rgba(55, 85, 160, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 15px 0 0 15px;
+    border-left: 2px solid var(--secondary-color);
+    border-top: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    opacity: 0;
+    transition: all 1s;
+  }
+
+  nav ul.slide {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  nav ul li a {
+    color: #fff;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .ilustrations {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  .ilustrations img {
+    position: static;
+  }
+
+  .home-page .title {
+    width: 70%;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .title button {
+    margin: 15px auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .title h1 {
+    margin-top: 145px;
+  }
+  .title button {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  nav ul {
+    width: 75%;
+  }
+}
+
+/* Ukuran JUMBOO */
+
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  nav {
+    padding: 2rem 5rem;
+  }
+  section {
+    padding: 4rem;
+  }
+}
